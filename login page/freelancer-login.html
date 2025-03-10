@@ -20,7 +20,7 @@
                     <div class="option active">Login as Freelancer</div>
                     <div class="option" onclick="window.location.href='client-login.html'">Login as Client</div>
                 </div>
-                <form>
+                <form onsubmit="handleLogin(event)">
                     <div class="form-group">
                         <label for="username">Username or email address</label>
                         <input type="text" id="username" name="username" placeholder="username" required>
@@ -64,5 +64,21 @@
             </div>
         </div>
     </div>
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            // Basic validation - replace with actual authentication logic
+            if (username && password) {
+                // Redirect to dashboard
+                window.location.href = '../dashboard/freelancer-dashboard.html';
+            } else {
+                alert('Please fill in all fields');
+            }
+        }
+    </script>
 </body>
 </html>
