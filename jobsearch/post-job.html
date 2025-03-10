@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a Job - JobSearch</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav id="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="JobSearch">
+        </div>
+        <div class="nav-auth">
+            <a href="#" class="signin-btn">Sign In</a>
+            <a href="#" class="login-btn">Login</a>
+        </div>
+    </nav>
+
+    <div class="post-job-container">
+        <h1>Post a New Job</h1>
+        <form class="job-post-form" id="jobPostForm" onsubmit="return handleJobSubmit(event)">
+            <div class="form-group">
+                <label for="job-title">Job Title</label>
+                <input type="text" id="job-title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="company-name">Company Name</label>
+                <input type="text" id="company-name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" id="location" required>
+            </div>
+
+            <div class="form-group">
+                <label for="job-type">Job Type</label>
+                <select id="job-type" required>
+                    <option value="full-time">Full Time</option>
+                    <option value="part-time">Part Time</option>
+                    <option value="contract">Contract</option>
+                    <option value="freelance">Freelance</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="salary">Salary Range</label>
+                <input type="text" id="salary" placeholder="e.g., $50,000 - $70,000">
+            </div>
+
+            <div class="form-group">
+                <label for="description">Job Description</label>
+                <textarea id="description" rows="6" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="requirements">Requirements</label>
+                <textarea id="requirements" rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="skills">Required Skills (comma-separated)</label>
+                <input type="text" id="skills" placeholder="e.g., JavaScript, React, Node.js">
+            </div>
+
+            <button type="submit" class="submit-job-btn">Post Job</button>
+        </form>
+    </div>
+    <script>
+    function handleJobSubmit(event) {
+        event.preventDefault();
+        
+        const newJob = {
+            title: document.getElementById('job-title').value,
+            company: document.getElementById('company-name').value,
+            location: document.getElementById('location').value,
+            type: document.getElementById('job-type').value,
+            salary: document.getElementById('salary').value,
+            description: document.getElementById('description').value,
+            requirements: document.getElementById('requirements').value,
+            skills: document.getElementById('skills').value
+        };
+
+        // Get existing jobs or initialize empty array
+        const jobs = JSON.parse(localStorage.getItem('jobs')) || [];
+        jobs.unshift(newJob);
+        localStorage.setItem('jobs', JSON.stringify(jobs));
+
+        alert('Job posted successfully!');
+        window.location.href = 'jobsearchpg.html';
+        return false;
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Search</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav id="navbar">
+            <div class="logo">
+                <img src="logo.png" alt="MINDLancer">
+            </div>
+            <div class="nav-btn">
+                <ul>
+                    <li><a href="#" class="nav-link">How It Works</a></li>
+                    <li><a href="#" class="nav-link">Browse Jobs</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link">Solutions <i class="fas fa-chevron-down"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-auth">
+                <a href="./login page/client-login.html" class="signin-btn">Sign In</a>
+                <a href="post-job.html" class="login-btn">Post a Project</a>
+            </div>
+        </nav>
+
+        <div class="hero-section" id="hero" data-animate="fade">
+            <div class="hero-content">
+                <h1>Find Your Dream Job</h1>
+                <p>Search for job opportunities that match your skills and interests.</p>
+                <div class="search-box">
+                    <input type="text" placeholder="Search for jobs...">
+                    <button class="search-btn">Search</button>
+                </div>
+                <div class="popular-searches">
+                    <span>Popular Searches:</span>
+                    <a href="#">Web Developer</a>
+                    <a href="#">Data Scientist</a>
+                    <a href="#">Graphic Designer</a>
+                    <a href="#">Marketing</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <aside class="filters-sidebar">
+                <h2>Filter Jobs</h2>
+                
+                <div class="filter-section">
+                    <h3>Project Type</h3>
+                    <label><input type="checkbox" name="type" value="full-time"> Full-time</label>
+                    <label><input type="checkbox" name="type" value="part-time"> Part-time</label>
+                    <label><input type="checkbox" name="type" value="contract"> Contract</label>
+                    <label><input type="checkbox" name="type" value="remote"> Remote</label>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Salary Range</h3>
+                    <input type="range" id="salary-range" min="0" max="200000" step="10000">
+                    <div class="range-labels">
+                        <span>$0</span>
+                        <span>$200k</span>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Skills Required</h3>
+                    <label><input type="checkbox" name="skills" value="javascript"> JavaScript</label>
+                    <label><input type="checkbox" name="skills" value="python"> Python</label>
+                    <label><input type="checkbox" name="skills" value="react"> React</label>
+                    <label><input type="checkbox" name="skills" value="node"> Node.js</label>
+                    <label><input type="checkbox" name="skills" value="aws"> AWS</label>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Location</h3>
+                    <input type="text" placeholder="Enter city or region" class="location-input">
+                    <label><input type="checkbox" name="remote-only"> Remote Only</label>
+                </div>
+
+                <button class="apply-filters-btn">Apply Filters</button>
+            </aside>
+
+            <main class="job-listings" data-animate="fade">
+                <!-- Existing static job cards can stay as fallback -->
+            </main>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 JobFinder</p>
+        </footer>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
