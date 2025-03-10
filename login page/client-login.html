@@ -21,7 +21,7 @@
                     <div class="option" onclick="window.location.href='freelancer-login.html'">Login as Freelancer</div>
                     <div class="option active">Login as Client</div>
                 </div>
-                <form action="connect.php" method="post">
+                <form id="loginForm" onsubmit="return handleLogin(event)">
                     <div class="form-group">
                         <label for="username">Business Email</label>
                         <input type="email" id="username" name="username" placeholder="business@example.com" required>
@@ -68,6 +68,14 @@
     </div>
 
     <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            // Here you would typically validate credentials with your backend
+            // For demonstration, we'll just redirect
+            window.location.href = './dashboard/client-dashboard.html';
+            return false;
+        }
+
         function loginWithGoogle() {
             // Implement Google OAuth login
             console.log('Google login clicked');
